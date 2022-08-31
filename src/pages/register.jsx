@@ -1,51 +1,53 @@
-import { useState } from "react";
-import { Form, Button, Container } from "react-bootstrap";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useAuth } from "../context/Auth";
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/react-in-jsx-scope */
+import { useState } from 'react'
+import { Form, Button, Container } from 'react-bootstrap'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useAuth } from '../context/Auth'
 
-export default function Register() {
+export default function Register () {
   const [user, setUser] = useState({
-    email: "",
-    password: "",
-    confirmationPassword: "",
-  });
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+    email: '',
+    password: '',
+    confirmationPassword: ''
+  })
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const { register } = useAuth();
+  const { register } = useAuth()
 
-  const router = useRouter();
+  const router = useRouter()
 
-  function handleSetUser(event) {
-    const { name, value } = event.target;
+  function handleSetUser (event) {
+    const { name, value } = event.target
     setUser({
       ...user,
-      [name]: value,
-    });
+      [name]: value
+    })
   }
 
-  async function handleSubmit(event) {
-    event.preventDefault();
+  async function handleSubmit (event) {
+    event.preventDefault()
 
     if (user.password !== user.confirmationPassword) {
-      return setError("Password do not match");
+      return setError('Password do not match')
     }
 
     try {
-      setError("");
-      setLoading(true);
-      await register(user.email, user.password);
-      router.push("/dashboard");
+      setError('')
+      setLoading(true)
+      await register(user.email, user.password)
+      router.push('/dashboard')
     } catch {
       if (user.password.valueOf.length < 6) {
-        setError("Password must 6 character");
+        setError('Password must 6 character')
       } else {
-        setError("Failed to register!");
+        setError('Failed to register!')
       }
     }
 
-    setLoading(false);
+    setLoading(false)
   }
 
   return (
@@ -100,7 +102,7 @@ export default function Register() {
                 </Button>
               </div>
               <div className="text-center pt-3">
-                Already have an account?{" "}
+                Already have an account?{' '}
                 <Link href="/login" className="link">
                   Login
                 </Link>
@@ -110,5 +112,5 @@ export default function Register() {
         </div>
       </Container>
     </>
-  );
+  )
 }

@@ -38,5 +38,25 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "redux.js",
+  "devDependencies": {
+    "eslint": "^8.22.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.5",
+    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-react": "^7.31.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AhmadRizky97/ChallengeChapter10-TeamDua-Manda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AhmadRizky97/ChallengeChapter10-TeamDua-Manda/issues"
+  },
+  "homepage": "https://github.com/AhmadRizky97/ChallengeChapter10-TeamDua-Manda#readme"
 }

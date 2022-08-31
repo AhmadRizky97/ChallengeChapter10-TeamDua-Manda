@@ -1,40 +1,40 @@
-import { useState } from "react";
-import { Form, Button, Container, Alert } from "react-bootstrap";
-import Link from "next/link";
-import { useAuth } from "../context/Auth";
+import { useState } from "react"
+import { Form, Button, Container, Alert } from "react-bootstrap"
+import Link from "next/link"
+import { useAuth } from "../context/Auth"
 
 export default function ResetPassword() {
   const [user, setUser] = useState({
     email: "",
-  });
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+  })
+  const [error, setError] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState("")
 
-  const { resetPassword } = useAuth();
+  const { resetPassword } = useAuth()
 
   function handleSetUser(event) {
-    const { name, value } = event.target;
+    const { name, value } = event.target
     setUser({
       ...user,
       [name]: value,
-    });
+    })
   }
 
   async function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
 
     try {
-      setMessage("");
-      setError("");
-      setLoading(true);
-      await resetPassword(user.email);
-      setMessage("Check your email for resetting password");
+      setMessage("")
+      setError("")
+      setLoading(true)
+      await resetPassword(user.email)
+      setMessage("Check your email for resetting password")
     } catch {
-      setError("Failed to reset password");
+      setError("Failed to reset password")
     }
 
-    setLoading(false);
+    setLoading(false)
   }
 
   return (
@@ -86,5 +86,5 @@ export default function ResetPassword() {
         </div>
       </Container>
     </>
-  );
+  )
 }

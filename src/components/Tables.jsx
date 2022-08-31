@@ -1,5 +1,8 @@
-import { Table } from "react-bootstrap";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
+import { Table } from 'react-bootstrap'
 
+// eslint-disable-next-line react/prop-types
 export const Tables = ({ leaderboards }) => {
   return (
     <>
@@ -31,5 +34,5 @@ export const Tables = ({ leaderboards }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
